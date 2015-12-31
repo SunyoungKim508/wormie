@@ -146,10 +146,10 @@ var FeedList = React.createClass({
 
     var list = feed.map((item, index) => {
       return (
-        <View key = {feed.length - 1 - index}>
+        <View key = {index}>
           <TouchableHighlight
             style = {styles.loginButton}
-            onPress = {this.viewRequest.bind(this, feed.length - 1 - index)}
+            onPress = {this.viewRequest.bind(this, index)}
           >
             <View style = {{flex: 1}}>
               <View style={[styles.cardTitleContainer, styles.row]}>
@@ -157,7 +157,7 @@ var FeedList = React.createClass({
                 <View style={styles.spaceBuffer} />
                 <Text style = {styles.cardDate}> {this._timeSince(Date.parse(item.created_at))} </Text>
               </View>
-              {this._renderVideo(item, feed.length - 1 - index)}
+              {this._renderVideo(item, index)}
             </View>
           </TouchableHighlight> 
           <View style={styles.cardInfoContainer}>
